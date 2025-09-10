@@ -1,0 +1,432 @@
+fileFormatVersion: 2
+guid: 17b8f8b270e69ba44a000a0648b04c05
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -457372272534104223
+    second: XU_walk_2_0
+  - first:
+      213: 951124090718386476
+    second: XU_walk_2_1
+  - first:
+      213: -4328292039462378341
+    second: XU_walk_2_2
+  - first:
+      213: 5324381270227265420
+    second: XU_walk_2_3
+  - first:
+      213: 484105937223425287
+    second: XU_walk_2_4
+  - first:
+      213: -453932963609143960
+    second: XU_walk_2_5
+  - first:
+      213: 7949550614270453042
+    second: XU_walk_2_6
+  - first:
+      213: -4830867355359612383
+    second: XU_walk_2_7
+  - first:
+      213: -2247468469964921048
+    second: XU_walk_2_8
+  - first:
+      213: -68816024835710771
+    second: XU_walk_2_9
+  - first:
+      213: -2277793651884983839
+    second: XU_walk_2_10
+  - first:
+      213: -5870057934779931926
+    second: XU_walk_2_11
+  - first:
+      213: 2840265808562328631
+    second: XU_walk_2_12
+  - first:
+      213: 6561943589833644099
+    second: XU_walk_2_13
+  - first:
+      213: -8796429279571792400
+    second: XU_walk_2_14
+  - first:
+      213: -7776664499274649938
+    second: XU_walk_2_15
+  - first:
+      213: 1673037102273462137
+    second: XU_walk_2_16
+  - first:
+      213: -3202883364917121543
+    second: XU_walk_2_17
+  - first:
+      213: -6052776612472306716
+    second: XU_walk_2_18
+  - first:
+      213: 3579464066246666809
+    second: XU_walk_2_19
+  - first:
+      213: 340535966880191959
+    second: XU_walk_2_20
+  - first:
+      213: -3006882547179856064
+    second: XU_walk_2_21
+  - first:
+      213: 2164194903186290957
+    second: XU_walk_2_22
+  - first:
+      213: 5834595693225649594
+    second: XU_walk_2_23
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: XU_walk_2_0
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 577
+        width: 215
+        height: 389
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 93ee6b357276cd64193002b4d716efe6
+      internalID: 712299442
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: XU_walk_2_1
+      rect:
+        serializedVersion: 2
+        x: 331
+        y: 575
+        width: 231
+        height: 386
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d4356c74fc596eb4596a64c8a2c0282d
+      internalID: 1026227989
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: XU_walk_2_2
+      rect:
+        serializedVersion: 2
+        x: 631
+        y: 570
+        width: 234
+        height: 391
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c5a469ef20bbd534499a668c90f03b60
+      internalID: 1872672851
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: XU_walk_2_3
+      rect:
+        serializedVersion: 2
+        x: 924
+        y: 565
+        width: 239
+        height: 399
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb8bdf3730c25bb458865ae4383470ce
+      internalID: -152318195
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: XU_walk_2_4
+      rect:
+        serializedVersion: 2
+        x: 1229
+        y: 579
+        width: 226
+        height: 381
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 340902d09cc703f4a9e3d9c8e54a3ae9
+      internalID: -1826234366
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: XU_walk_2_5
+      rect:
+        serializedVersion: 2
+        x: 1225
+        y: 104
+        width: 233
+        height: 398
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 708e78ef0aceb704b9a679410a8a7556
+      internalID: 1758578036
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: XU_walk_2_6
+      rect:
+        serializedVersion: 2
+        x: 930
+        y: 114
+        width: 228
+        height: 382
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c65e2c5697e39b4ab0ddfad3dfba270
+      internalID: 1099802254
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: XU_walk_2_7
+      rect:
+        serializedVersion: 2
+        x: 637
+        y: 113
+        width: 225
+        height: 386
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 984ddad9770a26746b8453e9e4d133af
+      internalID: -1823531790
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: XU_walk_2_8
+      rect:
+        serializedVersion: 2
+        x: 327
+        y: 113
+        width: 233
+        height: 389
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6787b5e1381aed6498c2724a7376608c
+      internalID: -649018585
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: XU_walk_2_9
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 119
+        width: 220
+        height: 381
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1fcd3b4397c43f8419a0ab74a9338bab
+      internalID: 642291003
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 6ba213b575033bd45923c15f032f85d5
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      XU_walk_2_0: 712299442
+      XU_walk_2_1: 1026227989
+      XU_walk_2_2: 1872672851
+      XU_walk_2_3: -152318195
+      XU_walk_2_4: -1826234366
+      XU_walk_2_5: 1758578036
+      XU_walk_2_6: 1099802254
+      XU_walk_2_7: -1823531790
+      XU_walk_2_8: -649018585
+      XU_walk_2_9: 642291003
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
