@@ -1,24 +1,17 @@
-.button {
-    width: 15%;
-    height: 9%;
-    font-size: 50px;
-    -unity-text-align: middle-center;
-    align-items: stretch;
-    border-top-left-radius: 40px;
-    border-top-right-radius: 40px;
-    border-bottom-right-radius: 40px;
-    border-bottom-left-radius: 40px;
-    cursor: url("project://database/Assets/imports/all/4%20GUI/7%20Cursor/2.png?fileID=2800000&guid=3aacbb326fb52f4449a6b821493fcadb&type=3#2");
-    color: rgb(255, 31, 1);
-    -unity-background-scale-mode: scale-to-fit;
-    background-size: contain;
-    background-position-y: center 0;
-}
-
 .header {
     font-size: 100px;
     background-color: rgba(255, 113, 113, 0);
     -unity-font-definition: resource('FlatSkin/Font/Roboto-MediumItalic');
     color: rgb(126, 21, 30);
     -unity-text-align: upper-center;
+}
+
+.button {
+    font-size: 40px;
+    -unity-font-definition: url("project://database/Assets/imports/Fonts/Xirod.otf?fileID=12800000&guid=f87ed6cdaf64a6146a0e45576b8d588a&type=3#Xirod");
+    width: 500px;
+    height: 125px;
+    justify-content: flex-start;
+    align-items: stretch;
+    color: rgb(255, 255, 255);
 }
