@@ -14,4 +14,39 @@
     justify-content: flex-start;
     align-items: stretch;
     color: rgb(255, 255, 255);
+    background-image: url("project://database/Assets/mainMenu/Button/Button%20orange.png?fileID=2800000&guid=261b2033c6e9c664483ce8625f846064&type=3#Button orange");
+}
+
+.button:hover {
+    font-size: 40px;
+    -unity-font-definition: url("project://database/Assets/imports/Fonts/Xirod.otf?fileID=12800000&guid=f87ed6cdaf64a6146a0e45576b8d588a&type=3#Xirod");
+    width: 500px;
+    height: 125px;
+    justify-content: flex-start;
+    align-items: stretch;
+    color: rgb(255, 255, 255);
+    scale: 1.1 1.1;
+    background-image: url("project://database/Assets/mainMenu/Button/Component%201.png?fileID=1088416947452640966&guid=d2803fee9a43a5a459a7f769e4a82bff&type=3#Component 1_0");
+    transition-duration: 2s;
+    transform-origin: center;
+    -unity-background-scale-mode: stretch-to-fill;
+    transition-property: opacity;
+}
+
+.hidden {
+    opacity: 0;
+    transition: opacity 1.5s ease;
+}
+
+.show {
+    opacity: 1;
+    transition: opacity 1.5s ease;
+}
+.showFast {
+    opacity: 1;
+    transition: opacity 0.2s ease;
+}
+.hiddenFast {
+    opacity: 0;
+    transition: opacity 0.2s ease;
 }

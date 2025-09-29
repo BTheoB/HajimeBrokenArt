@@ -14,7 +14,7 @@ public class PlayerController : MonoBehaviour
 
     public float speed = 3.0f;
     public int maxHealth = 5;
-    int currentHealth;
+    int currentHealth = 1;
     //Synthax qui met inconnue
     public int Health { get { return currentHealth; } }
 
@@ -24,15 +24,15 @@ public class PlayerController : MonoBehaviour
     bool isInvincible;
     float damageCooldown;
 
-
+    public bool isActive;
 
     void Awake()
     {
         mainCam = Camera.main;
-        Debug.Log("MainCam = " + mainCam.name);
         animator = GetComponent<Animator>();
         rigidbody2d = GetComponent<Rigidbody2D>();
         speed = 3.0f;
+        isActive = true;
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -52,12 +52,14 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!isActive) return;
 
-        //if(currentHealth <= 0)
-        //{
-        //    return;
-        //}
 
+        if (currentHealth <= 0)
+        {
+            return;
+        }
+        
         if (Input.GetMouseButtonDown(0)) {
             Launch();
         }
@@ -81,10 +83,11 @@ public class PlayerController : MonoBehaviour
     // Update is called at a fixed interval
     void FixedUpdate()
     {
-        //if (currentHealth <= 0)
-        //{
-        //    return;
-        //}
+        if (!isActive) return;
+        if (currentHealth <= 0 )
+        {
+            return;
+        }
 
         Vector2 position = (Vector2)rigidbody2d.position + speed * Time.deltaTime * move;
         rigidbody2d.MovePosition(position);
@@ -97,6 +100,10 @@ public class PlayerController : MonoBehaviour
     {
         currentHealth = Mathf.Clamp(health, 0, maxHealth );
         UIHandler.instance.SetHealthValue(currentHealth / (float)maxHealth);
+        if(currentHealth <= 0)
+        {
+            Death();
+        }
     }
     //Ajoute ou diminue de la vie a la vie déja existante
     public void ModifyHealth(int health)
@@ -147,6 +154,20 @@ public class PlayerController : MonoBehaviour
         Vector3 worldPos = mainCam.ScreenToWorldPoint(mousePos);
 
         return (((Vector2)worldPos - rigidbody2d.position)).normalized;
+    }
+
+    public void SetActivity(bool activity)
+    {
+        this.isActive = activity;
+    }
+
+
+    public void Death()
+    {
+        Debug.Log("Death");
+        animator.enabled = false;
+        rigidbody2d.linearVelocity = Vector2.zero; // stoppe le mouvement
+        rigidbody2d.constraints = RigidbodyConstraints2D.FreezeAll;
     }
 
 }
