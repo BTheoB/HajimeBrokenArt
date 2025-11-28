@@ -14,7 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Enemies>k__BackingField:
   - {fileID: 2831811460169721509, guid: 98c1faf50bb35b149a07cd657979565f, type: 3}
-  - {fileID: 8651642268810603706, guid: b1573f931f1f923419f361ec96dfbfe6, type: 3}
-  <MaxTimeBetweenSpawn>k__BackingField: 2
+  <MaxTimeBetweenSpawn>k__BackingField: 1.94
   <MinTimeBetweenSpawn>k__BackingField: 0.2
   <NumberToSpawn>k__BackingField: 10
+  <WaveLevel>k__BackingField: 1
+  <SpawnRate>k__BackingField: 5
+  healthMultiplierPerWave: 1.1
+  damageMultiplierPerWave: 1.05
+  countMultiplierPerWave: 1.05

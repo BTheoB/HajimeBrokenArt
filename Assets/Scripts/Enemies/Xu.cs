@@ -1,12 +1,11 @@
 using UnityEngine;
 
-public class Xu : EnemyController
+public class Xu : KillableEntity
 {
     protected override void Start()
     {
         maxHealth = 20; 
         base.Start();
-        spawnRate = 2;
         damage = 3;
         animator.SetFloat("Velocity", speed);
     }

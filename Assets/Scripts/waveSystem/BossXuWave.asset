@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 056785574b0a1614abed05317c5b13ef, type: 3}
+  m_Name: BossXuWave
+  m_EditorClassIdentifier: 
+  <Enemies>k__BackingField:
+  - {fileID: 8651642268810603706, guid: b1573f931f1f923419f361ec96dfbfe6, type: 3}
+  <MaxTimeBetweenSpawn>k__BackingField: 1
+  <MinTimeBetweenSpawn>k__BackingField: 0.1
+  <NumberToSpawn>k__BackingField: 1
+  <WaveLevel>k__BackingField: 5
+  <SpawnRate>k__BackingField: 2
+  healthMultiplierPerWave: 1.1
+  damageMultiplierPerWave: 1.05
+  countMultiplierPerWave: 1.05

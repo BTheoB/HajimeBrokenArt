@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 5162057401449030432}
   - component: {fileID: 2053640868042464390}
   - component: {fileID: 5692173360433223730}
-  - component: {fileID: 9107706396349115641}
   - component: {fileID: 8896970920835348176}
+  - component: {fileID: 1810028447535067623}
   m_Layer: 8
   m_Name: Enemy_Type1
   m_TagString: Enemy
@@ -201,19 +201,6 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0.0042591095, y: 0.42504337}
   m_Radius: 0.2759761
---- !u!114 &9107706396349115641
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2831811460169721509}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2eaefcb571f7d6345bfd12ce452a1c16, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 1.5
 --- !u!95 &8896970920835348176
 Animator:
   serializedVersion: 7
@@ -236,3 +223,17 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1810028447535067623
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2831811460169721509}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06d4783bac11c5d4997ba532a7de712b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollectiblePrefab: {fileID: 6007351277434479659, guid: ee661244b75cf1b4891b5700fb5283bb, type: 3}
+  speed: 1.5

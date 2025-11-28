@@ -12,7 +12,6 @@ public class MainMenu : MonoBehaviour
 
     private void Awake()
     {
-        Debug.Log("Ca awake aussi ");
         _UIDocument = GetComponent<UIDocument>();
         _button = _UIDocument.rootVisualElement.Q("StartButton") as Button;
         ButtonContainer = _UIDocument.rootVisualElement.Q("ContainerButtons");
@@ -25,8 +24,6 @@ public class MainMenu : MonoBehaviour
     private void OnEnable()
     {
         _button.clicked += OnClickPlay;
-        
-
     }
 
     private void OnDisable()
@@ -41,17 +38,13 @@ public class MainMenu : MonoBehaviour
         //schedule.Execute s'assure que unity peinte la première frame et que hidden sois bien appliqué aux EV
         //Ui toolkit realiser les transition uniquement si y'a un changement d'état une fois la première frame peinte
         StartCoroutine(AnimateUI());
-        Debug.Log("Après la coroutine");
     }
 
     private IEnumerator AnimateUI()
     {
-        Debug.Log("Avant le premier yild");
         yield return new WaitForSeconds(0.1f);
-        Debug.Log("Après le premier yild");
         ShowWithAnim(TitleContainer);
 
-        Debug.Log("supposer log");
         yield return new WaitForSeconds(1f); // attend 0.2 s
         ShowWithAnim(ButtonContainer);
     }

@@ -7,13 +7,13 @@ public class PortalSpawner : MonoBehaviour
 {
     Animator animator;
     public bool actif = false;
+    
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
         animator = GetComponent<Animator>();
     }
-
 
     public void Activer()
     {
@@ -27,8 +27,8 @@ public class PortalSpawner : MonoBehaviour
         animator.SetBool("isActive", false);
     }
 
-    public void Spawn(GameObject enemy)
+    public bool IsActive()
     {
-        Instantiate(enemy, this.transform.position, Quaternion.identity);
-    } 
+        return actif;
+    }
 }

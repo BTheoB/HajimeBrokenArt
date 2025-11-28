@@ -1,10 +1,11 @@
 using UnityEngine;
-using UnityEngine.InputSystem;
 public class Projectile : MonoBehaviour
 {
     Rigidbody2D rigidbody2d;
     Vector2 pointLancement;
-    private float RANGE = 10f;
+    private int damage;
+    private float range = -1;
+    private float speed;
 
     void Awake()
     {
@@ -12,19 +13,24 @@ public class Projectile : MonoBehaviour
         pointLancement = rigidbody2d.position;
     }
 
-
-
     void Update()
     {
-        if (Vector2.Distance(pointLancement, rigidbody2d.position) > RANGE)
+        if (range < 0) return;
+        if (Vector2.Distance(pointLancement, rigidbody2d.position) > range)
         {
             Destroy(gameObject);
         }
-        
     }
-    public void Launch(Vector2 direction, float force)
+
+    public void Initialize(int damage, float range, float speed)
     {
-        rigidbody2d.AddForce(direction * force);
+        this.damage = damage;
+        this.range = range;
+        this.speed = speed;
+    }
+    public void Launch(Vector2 direction)
+    {
+        rigidbody2d.linearVelocity = direction * this.speed;
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -41,14 +47,14 @@ public class Projectile : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        
     }
     void HitEnemy(Collider2D other)
     {
-        EnemyController enemy = other.gameObject.GetComponent<EnemyController>();
+        KillableEntity enemy = other.gameObject.GetComponent<KillableEntity>();
         if (enemy != null)
         {
-            enemy.ChangeHealth(-1); // Appelle la méthode pour réduire la vie du joueur
+            Debug.Log(-damage);
+            enemy.ChangeHealth(-damage); // Appelle la méthode pour réduire la vie du joueur
         }
     }
 }

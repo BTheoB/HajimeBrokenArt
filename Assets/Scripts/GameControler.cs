@@ -1,25 +1,30 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UIElements;
 
+
+//Gère le game state
 public class GameControler : MonoBehaviour
 {
     public bool isPaused;
     public WaveControler waveControler;
     public PlayerController Player;
     public PauseMenuScript pauseMenu;
+    public EnemyController enemyController;
 
     private void Awake()
     {
         isPaused = false;
     }
 
-    void OnEnable()
+    private void Start()
     {
         pauseMenu.OnClickReprendre += ReprendreGame;
         pauseMenu.OnClickQuitter += QuitterGame;
     }
 
-    void OnDisable()
+
+    void OnDestroy()
     {
         pauseMenu.OnClickReprendre -= ReprendreGame;
         pauseMenu.OnClickQuitter -= QuitterGame;
@@ -27,19 +32,27 @@ public class GameControler : MonoBehaviour
 
     void Update()
     {
+        HandlePauseInput();
+        HandleLaunchWaveInput();
+    }
+
+    private void HandlePauseInput()
+    {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            Debug.Log("touche escape pressé");
-            isPaused = !isPaused;
-
-            if(isPaused)
-            {
-                PauseGame();
-            }
-            else
-            {
+            if (isPaused)
                 ReprendreGame();
-            }
+            else
+                PauseGame();
+        }
+    }
+
+    private void HandleLaunchWaveInput()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            if (!waveControler.isWaveActive && !enemyController.IsEnemiesStillAlive())
+                LauchGame();
         }
     }
 
@@ -47,14 +60,6 @@ public class GameControler : MonoBehaviour
     {
         waveControler.StartWave();
     }
-
-    public void NextWave()
-    {
-        if (waveControler.IsEnd()) {
-            return;
-        }
-        waveControler.NextWave();
-    }  
 
     public void GameOver()
     {
@@ -72,16 +77,24 @@ public class GameControler : MonoBehaviour
 
     public void PauseGame()
     {
-        Time.timeScale = 0;
-        Player.SetActivity(false);
+        isPaused = true;
+        
         pauseMenu.ShowWithAnim();
+
+        Player.SetActivity(false);
+        Time.timeScale = 0;
     }
 
     public void ReprendreGame()
     {
-        Player.SetActivity(true);
+        isPaused = false;
+
+
         pauseMenu.HideWithAnim();
+
+
         Time.timeScale = 1;
+        Player.SetActivity(true);
     }
 
     public void QuitterGame()

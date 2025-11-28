@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8968027946866153768}
   - component: {fileID: 4831301627161590587}
   - component: {fileID: 6373766563281314085}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Portal_type1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -171,4 +171,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   actif: 0
-  enemyPrefab: {fileID: 2831811460169721509, guid: 98c1faf50bb35b149a07cd657979565f, type: 3}

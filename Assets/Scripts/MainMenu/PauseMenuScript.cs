@@ -26,24 +26,34 @@ public class PauseMenuScript : MonoBehaviour
         ReprendreButton.clicked += () => OnClickReprendre?.Invoke();
         _QuitterButton.clicked += () => OnClickQuitter?.Invoke();
 
-        HideWithAnim();
+        MainContainer.style.display = DisplayStyle.None;
+        MainContainer.AddToClassList("hidden");
     }
 
-    public void ShowWithAnim()
+    public void ShowWithAnim(int delayMs = 1)
     {
         if (MainContainer == null) return;
 
+        MainContainer.style.display = DisplayStyle.Flex;
+
+        // On retire hidden après un frame (ou delay) pour forcer la transition CSS
         MainContainer.schedule.Execute(() =>
         {
             MainContainer.RemoveFromClassList("hiddenFast");
-            
-        });
+            MainContainer.AddToClassList("showFast");
+        }).StartingIn(delayMs);
     }
 
-    public void HideWithAnim()
+    public void HideWithAnim(bool immediate = false)
     {
         if (MainContainer == null) return;
 
+        MainContainer.RemoveFromClassList("showFast");
         MainContainer.AddToClassList("hiddenFast");
+
+        MainContainer.schedule.Execute(() =>
+        {
+            MainContainer.style.display = DisplayStyle.None;
+        }).StartingIn(200);
     }
 }

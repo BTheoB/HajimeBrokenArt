@@ -11,20 +11,17 @@ public class WaveControler : MonoBehaviour
     private int stage = 0;
     public bool isWaveActive = false;
     public PortalSpawner[] portalSpawners;
+    [SerializeField] private EnemySpawner enemySpawner;
+    [SerializeField] private EnemyController enemyController;
+
     private int numberToSpawn;
-
-
     float intervalSpawn;
+
     void Awake()
     {
         currentWave = waves[stage];
         intervalSpawn = currentWave.MaxTimeBetweenSpawn;
         numberToSpawn = currentWave.NumberToSpawn;
-    }
-
-    void Start()
-    {
-        //StartWave();
     }
 
     // Update is called once per frame
@@ -43,82 +40,61 @@ public class WaveControler : MonoBehaviour
             Spawn();
             numberToSpawn -= 1;
         }
+        if(numberToSpawn <= 0)
+        {
+            StopWave();
+        }
     }
 
     public void StartWave()
     {
-        for(int i = 0; i < portalSpawners.Length; i++)
+        if (IsEnd()) return; 
+
+        isWaveActive = true;
+        for(int i = 0; i < portalSpawners.Length; i++) 
         {
             portalSpawners[i].Activer();
         }
-        isWaveActive = true;
     }
 
     private void Spawn()
     {
-        //Le maimum du range est eclue
+        //Le maximum du range est eclue
         int portal = Random.Range(0, 4);
-        GameObject enemy = SelectEnemy(currentWave.Enemies);
-        portalSpawners[portal].Spawn(enemy);
+        if (!portalSpawners[portal].IsActive()) return;
+
+
+        KillableEntity enemySpwaned =  enemySpawner.SpawnEnemy(currentWave, portalSpawners[portal].transform.position, enemyController);
+
+        enemyController.AddEnemy(enemySpwaned);
     }
 
     public void StopWave() {
+        isWaveActive = false;
         for (int i = 0; i < portalSpawners.Length; i++)
         {
             portalSpawners[i].Deactiver();
         }
-        isWaveActive = false;
+        NextWave();
     }
 
     public void NextWave()
     {
-        
         if (!IsEnd() && isWaveActive == false)
         {
             stage += 1;
-            currentWave = waves[stage];
-            StartWave();
+            SetWave();
         }
-        
     }
     public bool IsEnd()
     {
-        return waves.Length <= stage - 1;
+        return waves.Length - 1 < stage;
     }
 
-    private GameObject SelectEnemy(GameObject[] enemyPool)
+    private void SetWave()
     {
-
-        List<(GameObject prefab, float weight)> weightedEnemies = new();
-
-        float total = 0f;
-        foreach (var enemy in enemyPool)
-        {
-            if(enemy.TryGetComponent<EnemyController>(out var enemyInstance))
-            {
-                float weight = enemyInstance.spawnRate;
-                total += weight;
-                weightedEnemies.Add((enemy, weight));
-            }
-            else
-            {
-                throw new Exception("Une des entité dans la Pool d'ennemies n'est pas un Enemy");
-            }
-            
-        }
-            
-
-        float rand = Random.Range(0f, total);
-        float cumul = 0f;
-
-        foreach (var enemy in weightedEnemies)
-        {
-            cumul += enemy.weight;
-            if (rand < cumul)
-                return enemy.prefab;
-        }
-
-        return null;
-
+        currentWave = waves[stage];
+        intervalSpawn = currentWave.MaxTimeBetweenSpawn;
+        numberToSpawn = currentWave.NumberToSpawn;
     }
 }

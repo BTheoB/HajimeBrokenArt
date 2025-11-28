@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
     Vector2 move;
     public GameObject projectilePrefab;
     private Camera mainCam;
+    public Weapon weapon;
 
     public float speed = 3.0f;
     public int maxHealth = 5;
@@ -137,23 +138,19 @@ public class PlayerController : MonoBehaviour
     //Lance un projectil de l'arme en main
     void Launch()
     {
-        GameObject projectileObject = Instantiate(projectilePrefab, rigidbody2d.position + Vector2.up * 0.5f, Quaternion.identity);
-        Projectile projectile = projectileObject.GetComponent<Projectile>();
+        weapon.Fire();
+        //GameObject projectileObject = Instantiate(projectilePrefab, rigidbody2d.position + Vector2.up * 0.5f, Quaternion.identity);
+        //Projectile projectile = projectileObject.GetComponent<Projectile>();
 
-        // Calcul la direction du joueur vers le pointeur de la souris 
-        Vector2 direction = GetDirectionToMousePointer();
-        projectile.Launch(direction, 500);
+        //// Calcul la direction du joueur vers le pointeur de la souris 
+        //Vector2 direction = GetDirectionToMousePointer();
+        //projectile.Launch(direction, 500);
     }
     Vector2 GetDirectionToMousePointer()
     {
-        Vector3 mousePos = Input.mousePosition;
+        Vector3 mousePos = mainCam.ScreenToWorldPoint(Input.mousePosition);
 
-        // due a la camera virtuel a -12 en Z On fixe une profondeur correcte pour un monde 2D
-        mousePos.z = Mathf.Abs(mainCam.transform.position.z);  // Ex: si cam à z = -10, on met z = 10
-
-        Vector3 worldPos = mainCam.ScreenToWorldPoint(mousePos);
-
-        return (((Vector2)worldPos - rigidbody2d.position)).normalized;
+        return (((Vector2)mousePos - rigidbody2d.position)).normalized;
     }
 
     public void SetActivity(bool activity)

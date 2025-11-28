@@ -1,90 +1,51 @@
+using System.Collections.Generic;
 using UnityEngine;
 
+// Super classe d'une ennemie qui regroupe les fonctions de bases des ennemies
 public class EnemyController : MonoBehaviour
 {
-    protected Animator animator;
+    
+    private List<KillableEntity> activeEnemies = new();
 
-    protected Rigidbody2D rigidbody2d;
-    protected Rigidbody2D PlayerRigidbody2d;
-    protected Vector2 playerPosition;
-
-    public float speed = 1.5f;
-    protected int maxHealth = 3;
-    protected int currentHealth;
-    protected bool isDead = false;
-    protected int damage = 1;
-
-    public float spawnRate = 5f;
-
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    protected virtual void Start()
+    public void AddEnemy(KillableEntity enemy)
     {
-        animator = GetComponent<Animator>();
-        rigidbody2d = GetComponent<Rigidbody2D>();
-        PlayerRigidbody2d = GameObject.FindWithTag("Player").GetComponent<Rigidbody2D>();
-        currentHealth = maxHealth;
+        activeEnemies.Add(enemy);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void RemoveEnemy(KillableEntity enemy) 
     {
-        if (!isDead) {
-            playerPosition = PlayerRigidbody2d.position;
-        }
-    }
-    // Update is called at a fixed interval
-    public virtual void FixedUpdate()
-    {
-        if (!isDead) {
-            Vector2 direction = (playerPosition - rigidbody2d.position).normalized;
-
-            animator.SetFloat("MoveX", direction.x);
-            animator.SetFloat("MoveY", direction.y);
-            // Calcule la direction de l'ennemie vers joueur
-            Vector2 newPosition = (Vector2)rigidbody2d.position + speed * Time.deltaTime * direction;
-            rigidbody2d.MovePosition(newPosition);
-        }        
+        activeEnemies.Remove(enemy);
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    public void UnAliveAllEnemy()
     {
-        HitPlayer(other);
-    }
-    private void OnTriggerStay2D(Collider2D other)
-    {
-        HitPlayer(other);
-    }
-
-    void HitPlayer(Collider2D other)
-    {
-        if (!isDead) { 
-            PlayerController player = other.gameObject.GetComponent<PlayerController>();
-            if (player != null)
-            {
-                player.ModifyHealth(-damage); // Appelle la méthode pour réduire la vie du joueur
-            }
-        }
-    }
-
-    //Affecte un nouveau montant à la vie
-    protected void SetHealth(int health)
-    {
-        currentHealth = Mathf.Clamp(health, -1, maxHealth);
-    }
-    //Ajoute ou diminue de la vie a la vie déja existante
-    public void ChangeHealth(int health)
-    {
-        SetHealth(currentHealth + health);
-        if (currentHealth <= 0 && currentHealth != -1)
+        foreach (var enemy in activeEnemies)
         {
-            isDead = true;
-            animator.SetTrigger("Death");
+            enemy.TriggerDeathAnimation();
+        }
+        activeEnemies.Clear();
+    }
+
+    public void FreezeEnemiesAll()
+    {
+        foreach (var enemy in activeEnemies)
+        {
+            enemy.Freeze();
         }
     }
 
-    public void Death()
+    public void UnFreezeAll()
     {
-        Destroy(gameObject);
+        foreach (var enemy in activeEnemies)
+        {
+            enemy.UnFreeze();
+        }
     }
+
+
+    public bool IsEnemiesStillAlive()
+    {
+        return activeEnemies.Count > 0;
+    }
+
 }
