@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: BasicWeaponData
   m_EditorClassIdentifier: 
   weaponName: brrrrrr
-  damage: 100
+  damage: 10
   damagePerLevel: 20
   cooldown: 0.3
   projectileSpeed: 20

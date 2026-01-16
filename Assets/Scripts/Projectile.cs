@@ -53,8 +53,7 @@ public class Projectile : MonoBehaviour
         KillableEntity enemy = other.gameObject.GetComponent<KillableEntity>();
         if (enemy != null)
         {
-            Debug.Log(-damage);
-            enemy.ChangeHealth(-damage); // Appelle la méthode pour réduire la vie du joueur
+            enemy.DamageTakken(-damage); 
         }
     }
 }

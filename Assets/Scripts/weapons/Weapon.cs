@@ -5,12 +5,14 @@ public abstract class Weapon : MonoBehaviour, IWeapon
     private Camera mainCam;
     public Transform tipOfTheWeapon;
     private int level = 1;
-    void Start()
+    protected virtual void Start()
     {
         mainCam = Camera.main;
     }
 
     public abstract void Fire();
+
+    public abstract void LaunchEffect();
     protected Vector2 GetDirectionToMousePointer()
     {
         Vector3 mousePos = mainCam.ScreenToWorldPoint(Input.mousePosition);

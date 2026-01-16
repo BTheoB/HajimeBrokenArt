@@ -199,5 +199,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CollectiblePrefab: {fileID: 6007351277434479659, guid: ee661244b75cf1b4891b5700fb5283bb, type: 3}
+  enemyController: {fileID: 0}
   speed: 1.5
-  spawnRate: 5
+  isDead: 0
+  xuData: {fileID: 11400000, guid: b070511fd456c664aa1466fafc75aa2d, type: 2}

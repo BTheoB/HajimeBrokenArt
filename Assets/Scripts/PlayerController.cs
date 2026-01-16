@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -12,6 +13,8 @@ public class PlayerController : MonoBehaviour
     public GameObject projectilePrefab;
     private Camera mainCam;
     public Weapon weapon;
+
+    public event Action OnPlayerDied;
 
     public float speed = 3.0f;
     public int maxHealth = 5;
@@ -139,18 +142,6 @@ public class PlayerController : MonoBehaviour
     void Launch()
     {
         weapon.Fire();
-        //GameObject projectileObject = Instantiate(projectilePrefab, rigidbody2d.position + Vector2.up * 0.5f, Quaternion.identity);
-        //Projectile projectile = projectileObject.GetComponent<Projectile>();
-
-        //// Calcul la direction du joueur vers le pointeur de la souris 
-        //Vector2 direction = GetDirectionToMousePointer();
-        //projectile.Launch(direction, 500);
-    }
-    Vector2 GetDirectionToMousePointer()
-    {
-        Vector3 mousePos = mainCam.ScreenToWorldPoint(Input.mousePosition);
-
-        return (((Vector2)mousePos - rigidbody2d.position)).normalized;
     }
 
     public void SetActivity(bool activity)
@@ -161,10 +152,10 @@ public class PlayerController : MonoBehaviour
 
     public void Death()
     {
-        Debug.Log("Death");
         animator.enabled = false;
         rigidbody2d.linearVelocity = Vector2.zero; // stoppe le mouvement
         rigidbody2d.constraints = RigidbodyConstraints2D.FreezeAll;
+        OnPlayerDied?.Invoke();
     }
 
 }

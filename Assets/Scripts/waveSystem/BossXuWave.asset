@@ -17,7 +17,7 @@ MonoBehaviour:
   <MaxTimeBetweenSpawn>k__BackingField: 1
   <MinTimeBetweenSpawn>k__BackingField: 0.1
   <NumberToSpawn>k__BackingField: 1
-  <WaveLevel>k__BackingField: 5
+  <WaveLevel>k__BackingField: 1
   <SpawnRate>k__BackingField: 2
   healthMultiplierPerWave: 1.1
   damageMultiplierPerWave: 1.05

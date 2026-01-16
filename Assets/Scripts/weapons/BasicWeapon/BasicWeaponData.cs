@@ -7,7 +7,7 @@ public class BasicWeaponData : ScriptableObject
     public int damage = 10;
     public int damagePerLevel = 20;
     public float cooldown = 0.3f;
-    public float projectileSpeed = 20f;
+    public float projectileSpeed = 10f;
     public float range = 10f;
     public GameObject projectilePrefab;
 }

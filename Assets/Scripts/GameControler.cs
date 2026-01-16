@@ -8,8 +8,9 @@ public class GameControler : MonoBehaviour
 {
     public bool isPaused;
     public WaveControler waveControler;
-    public PlayerController Player;
+    public PlayerController player;
     public PauseMenuScript pauseMenu;
+    public GameOverMenuScript gameOverMenu;
     public EnemyController enemyController;
 
     private void Awake()
@@ -17,17 +18,26 @@ public class GameControler : MonoBehaviour
         isPaused = false;
     }
 
-    private void Start()
+    private void OnEnable()
     {
         pauseMenu.OnClickReprendre += ReprendreGame;
         pauseMenu.OnClickQuitter += QuitterGame;
+
+        player.OnPlayerDied += GameOver;
+
+        gameOverMenu.OnClickQuitter += QuitterGame;
+        gameOverMenu.OnClickRejouer += RestartGame;
     }
 
-
-    void OnDestroy()
+    private void OnDisable()
     {
         pauseMenu.OnClickReprendre -= ReprendreGame;
         pauseMenu.OnClickQuitter -= QuitterGame;
+
+        player.OnPlayerDied -= GameOver;
+
+        gameOverMenu.OnClickQuitter -= QuitterGame;
+        gameOverMenu.OnClickRejouer -= RestartGame;
     }
 
     void Update()
@@ -63,14 +73,14 @@ public class GameControler : MonoBehaviour
 
     public void GameOver()
     {
-
-        //Lancer UI de game over
         Time.timeScale = 0f;
-
+        player.SetActivity(false);
+        gameOverMenu.ShowWithAnim();
     }
 
     public void RestartGame()
     {
+        ScoreManager.Instance.Reset();
         Time.timeScale = 1f;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
@@ -81,7 +91,7 @@ public class GameControler : MonoBehaviour
         
         pauseMenu.ShowWithAnim();
 
-        Player.SetActivity(false);
+        player.SetActivity(false);
         Time.timeScale = 0;
     }
 
@@ -89,12 +99,10 @@ public class GameControler : MonoBehaviour
     {
         isPaused = false;
 
-
         pauseMenu.HideWithAnim();
 
-
         Time.timeScale = 1;
-        Player.SetActivity(true);
+        player.SetActivity(true);
     }
 
     public void QuitterGame()

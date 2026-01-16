@@ -2,12 +2,20 @@ using UnityEngine;
 
 public class Xu : KillableEntity
 {
+
+    public XuData xuData;
     protected override void Start()
     {
-        maxHealth = 20; 
         base.Start();
-        damage = 3;
         animator.SetFloat("Velocity", speed);
+    }
+
+    public override void Initialize()
+    {
+        maxHealth = xuData.maxHealth;
+        currentHealth = xuData.maxHealth;
+        speed = xuData.speed;
+        damage = xuData.damage;
     }
     public override void FixedUpdate()
     {
@@ -22,4 +30,12 @@ public class Xu : KillableEntity
         }
     }
 
+    public override void DamageTakken(int health)
+    {
+        ChangeHealth(health);
+    }
+    public override void AddScoreOnDeath()
+    {
+        ScoreManager.Instance.AddScore(xuData.scoreOnDeath);
+    }
 }

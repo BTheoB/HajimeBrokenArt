@@ -1,0 +1,21 @@
+<engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI%20Toolkit/MainMenuStyle.uss?fileID=7433441132597879392&amp;guid=b190ba39eace1434b9834503dfcfb6e7&amp;type=3#MainMenuStyle" />
+    <engine:VisualElement name="MainContainer" style="width: 100%; height: 100%;">
+        <engine:VisualElement name="SmokedBackground" enabled="true" style="flex-grow: 1; background-color: rgb(0, 0, 0); position: absolute; width: 100%; height: 100%; opacity: 0.35; top: 2px; left: 0;" />
+        <engine:VisualElement name="ScoreContainer" style="flex-grow: 0; align-items: center; flex-direction: row; left: auto; top: auto; margin-top: 11%; margin-left: 25%;">
+            <engine:Label text="Game Over :c" name="ScoreLabel" style="font-size: 145px; color: rgb(255, 250, 108); opacity: 1; margin-right: 42px;" />
+        </engine:VisualElement>
+        <engine:VisualElement name="ScoreContainer" style="flex-grow: 0; align-items: center; flex-direction: row; left: auto; top: auto; margin-top: 0; margin-left: 25%;">
+            <engine:Label text="Score : " name="ScoreLabel" style="font-size: 104px; color: rgb(255, 250, 108); opacity: 1; margin-right: 42px;" />
+            <engine:Label text="69100" name="ScoreNumber" style="color: rgb(132, 193, 17); font-size: 70px; top: 5%;" />
+        </engine:VisualElement>
+        <engine:VisualElement name="RegisterContainer" style="flex-grow: 0; flex-direction: row; flex-shrink: 1; -unity-text-align: middle-center; justify-content: center; align-self: auto; align-content: auto; align-items: center; font-size: 45px; margin-top: 24px; height: 127px;">
+            <engine:TextField placeholder-text="Player&apos;s Name" name="PlayerNameTextField" style="width: 25%; height: 50px; cursor: url(&quot;project://database/Assets/imports/GUI/8%20Cursors/3.png?fileID=2800000&amp;guid=937db158c8c2f4f46aaee1c8f638b60d&amp;type=3#3&quot;); font-size: 25px;" />
+            <engine:Button name="ValidationRegistryScore" class="button" style="width: 250px; font-size: 40px; -unity-font-definition: url(&quot;project://database/Library/unity%20default%20resources?fileID=10102&amp;guid=0000000000000000e000000000000000&amp;type=0#LegacyRuntime&quot;); background-image: url(&quot;project://database/Assets/UI%20Toolkit/Banque_images/chrome-vert-bouton-enregistrer-2by0d5n.jpg?fileID=2800000&amp;guid=ece31b83a2af7a7469089605a4c97624&amp;type=3#chrome-vert-bouton-enregistrer-2by0d5n&quot;); margin-left: 44px;" />
+        </engine:VisualElement>
+        <engine:VisualElement name="ButtonContainer" style="flex-grow: initial; flex-direction: row; flex-shrink: 1; justify-content: space-evenly; margin-top: 5%; opacity: 1; align-items: stretch; align-content: flex-start;">
+            <engine:Button text="Quitter" name="QuitterButton" class="button" />
+            <engine:Button text="Rejouer" name="RejouerButton" class="button" />
+        </engine:VisualElement>
+    </engine:VisualElement>
+</engine:UXML>

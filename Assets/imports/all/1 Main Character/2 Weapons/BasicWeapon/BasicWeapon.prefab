@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 7744699747885546226}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.75, z: 0}
+  m_LocalPosition: {x: 0, y: -0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -154,3 +154,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tipOfTheWeapon: {fileID: 5099548169901721548}
   weaponData: {fileID: 11400000, guid: d78a075e1dfb928428636937560ef63d, type: 2}
+  shootAnimator: {fileID: 0}

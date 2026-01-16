@@ -3,9 +3,32 @@ using UnityEngine;
 public class BasicWeapon : Weapon
 {
     public BasicWeaponData weaponData;
+    private float coolDown;
+    private bool canFire = true;
+    [SerializeField] private Animator shootAnimator;
 
-    public override void Fire()
+    protected override void Start()
     {
+        base.Start();
+        coolDown = weaponData.cooldown;
+    }
+
+    void Update()
+    {
+        if (!canFire)
+        {
+            coolDown -= Time.deltaTime;
+            if (coolDown < 0)
+            {
+                canFire = true;
+            }
+        }
+    }
+
+
+    public override void LaunchEffect()
+    {
+        shootAnimator.SetTrigger("Shoot");
         GameObject projectileObject = Instantiate(weaponData.projectilePrefab, tipOfTheWeapon.position, tipOfTheWeapon.rotation);
 
         Projectile projectile = projectileObject.GetComponent<Projectile>();
@@ -16,6 +39,16 @@ public class BasicWeapon : Weapon
         Vector2 direction = GetDirectionToMousePointer();
 
         projectile.Launch(direction);
+    }
+
+
+    public override void Fire()
+    {
+
+        if (!canFire) return;
+        coolDown = weaponData.cooldown;
+        canFire = false;
+        LaunchEffect();
     }
 }
 

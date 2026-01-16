@@ -2,7 +2,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 
 // Super classe d'une ennemie qui regroupe les fonctions de bases des ennemies
-public class KillableEntity : MonoBehaviour
+public abstract class KillableEntity : MonoBehaviour
 {
     protected Animator animator;
 
@@ -12,11 +12,11 @@ public class KillableEntity : MonoBehaviour
     public GameObject CollectiblePrefab;
     public EnemyController enemyController;
 
-    public float speed = 1.5f;
-    protected int maxHealth = 3;
+    public float speed;
+    protected int damage;
+    protected int maxHealth;
     protected int currentHealth;
     public bool isDead = false;
-    protected int damage = 1;
     protected bool freezed = false;
 
 
@@ -26,8 +26,10 @@ public class KillableEntity : MonoBehaviour
         animator = GetComponent<Animator>();
         rigidbody2d = GetComponent<Rigidbody2D>();
         PlayerRigidbody2d = GameObject.FindWithTag("Player").GetComponent<Rigidbody2D>();
-        currentHealth = maxHealth;
+        Initialize();
     }
+
+    public abstract void Initialize();
 
     public void SetEnemyController(EnemyController controller)
     {
@@ -58,7 +60,7 @@ public class KillableEntity : MonoBehaviour
     }
 
     //Apply scaling or other parameters to initialize when enemy spw
-    public void Initialize(float healthMultiplier, float damageMultiplier, int waveLevel)
+    public void ApplyScaling(float healthMultiplier, float damageMultiplier, int waveLevel)
     {
 
         this.maxHealth = Mathf.FloorToInt(this.maxHealth * Mathf.Pow(healthMultiplier, waveLevel - 1));
@@ -88,6 +90,9 @@ public class KillableEntity : MonoBehaviour
         }
     }
 
+
+    public abstract void DamageTakken(int health);
+
     //Affecte un nouveau montant à la vie
     protected void SetHealth(int health)
     {
@@ -97,7 +102,6 @@ public class KillableEntity : MonoBehaviour
     public void ChangeHealth(int health) 
     {
         SetHealth(currentHealth + health);
-
         if (currentHealth <= 0)
         {
             isDead = true;
@@ -113,9 +117,13 @@ public class KillableEntity : MonoBehaviour
     public void Death()
     {
         enemyController.RemoveEnemy(this);
+        AddScoreOnDeath();
         Instantiate(CollectiblePrefab, rigidbody2d.position, Quaternion.identity);
         Destroy(gameObject);
     }
+
+    //Selon l'ennemies ajouter un score, le nombre de point est stocker dans le ennemies data
+    public abstract void AddScoreOnDeath();
 
     public bool IsFreezed()
     {

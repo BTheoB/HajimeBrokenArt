@@ -5,17 +5,16 @@ using Random = UnityEngine.Random;
 
 public class EnemySpawner : MonoBehaviour
 {
-
+    public EnemiesDataBase enemiesDataBase;
     public KillableEntity SpawnEnemy(Wave currentWave, Vector2 position, EnemyController enemyController)
     {
-
         GameObject enemyToSpawn = SelectEnemy(currentWave);
 
         GameObject obj = Instantiate(enemyToSpawn, position, Quaternion.identity);
         KillableEntity spawnedEnemy = obj.GetComponent<KillableEntity>();
         spawnedEnemy.SetEnemyController(enemyController);
 
-        spawnedEnemy.Initialize(currentWave.healthMultiplierPerWave, currentWave.damageMultiplierPerWave, currentWave.WaveLevel);
+        spawnedEnemy.ApplyScaling(currentWave.healthMultiplierPerWave, currentWave.damageMultiplierPerWave, currentWave.WaveLevel);
 
         return spawnedEnemy;
     }

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2053640868042464390}
   - component: {fileID: 5692173360433223730}
   - component: {fileID: 8896970920835348176}
-  - component: {fileID: 1810028447535067623}
+  - component: {fileID: 8062131047062175189}
   m_Layer: 8
   m_Name: Enemy_Type1
   m_TagString: Enemy
@@ -223,7 +223,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &1810028447535067623
+--- !u!114 &8062131047062175189
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -232,8 +232,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 2831811460169721509}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 06d4783bac11c5d4997ba532a7de712b, type: 3}
+  m_Script: {fileID: 11500000, guid: 8bb07040c4014e74c9a7274f6f296081, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   CollectiblePrefab: {fileID: 6007351277434479659, guid: ee661244b75cf1b4891b5700fb5283bb, type: 3}
-  speed: 1.5
+  enemyController: {fileID: 0}
+  speed: 0
+  isDead: 0
+  basicEnemyData: {fileID: 11400000, guid: 968baebeb4ada5e4d89608441268b4cb, type: 2}
