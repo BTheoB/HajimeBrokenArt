@@ -33,12 +33,10 @@ public class BasicWeapon : Weapon
 
         Projectile projectile = projectileObject.GetComponent<Projectile>();
         int damage = CalculateDamage(weaponData.damage, weaponData.damagePerLevel);
-        projectile.Initialize(damage, weaponData.range, weaponData.projectileSpeed);
-
         // Calcul la direction du joueur vers le pointeur de la souris 
         Vector2 direction = GetDirectionToMousePointer();
+        projectile.Initialize(damage, weaponData.range, weaponData.projectileSpeed, direction);
 
-        projectile.Launch(direction);
     }
 
 

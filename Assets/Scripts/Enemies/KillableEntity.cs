@@ -49,13 +49,24 @@ public abstract class KillableEntity : MonoBehaviour
     {
         if (!isDead && !freezed)
         {
-            Vector2 direction = (playerPosition - rigidbody2d.position).normalized;
 
-            animator.SetFloat("MoveX", direction.x);
-            animator.SetFloat("MoveY", direction.y);
+
+            Vector2 direction = (playerPosition - rigidbody2d.position);
+            Vector2 normalizedDirection = direction.normalized;
+
+            animator.SetFloat("MoveX", normalizedDirection.x);
+            animator.SetFloat("MoveY", normalizedDirection.y);
+
+            Debug.Log(direction.magnitude);
+
             // Calcule la direction de l'ennemie vers joueur
-            Vector2 newPosition = (Vector2)rigidbody2d.position + speed * Time.deltaTime * direction;
-            rigidbody2d.MovePosition(newPosition);
+            if (direction.magnitude > 1)
+            {
+               
+                Vector2 velocity = normalizedDirection * speed;
+                Vector2 newPosition = (Vector2)rigidbody2d.position + speed * Time.deltaTime * normalizedDirection;
+                rigidbody2d.MovePosition(newPosition);
+            }
         }
     }
 
@@ -91,7 +102,7 @@ public abstract class KillableEntity : MonoBehaviour
     }
 
 
-    public abstract void DamageTakken(int health);
+    public abstract void DamageTaken(int health);
 
     //Affecte un nouveau montant à la vie
     protected void SetHealth(int health)

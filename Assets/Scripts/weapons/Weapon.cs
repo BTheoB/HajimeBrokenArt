@@ -17,7 +17,7 @@ public abstract class Weapon : MonoBehaviour, IWeapon
     {
         Vector3 mousePos = mainCam.ScreenToWorldPoint(Input.mousePosition);
 
-        return (((Vector2)mousePos - (Vector2)transform.position)).normalized;
+        return ((Vector2)mousePos - (Vector2)transform.position).normalized;
     }
     public void LevelUp()
     {

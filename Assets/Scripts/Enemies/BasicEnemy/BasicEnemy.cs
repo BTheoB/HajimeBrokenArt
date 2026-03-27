@@ -16,7 +16,7 @@ public class BasicEnemy : KillableEntity
         animator.SetTrigger("Hitted");
     }
 
-    public override void DamageTakken(int health)
+    public override void DamageTaken(int health)
     {
         ChangeHealth(health);
         HittedAnimation();

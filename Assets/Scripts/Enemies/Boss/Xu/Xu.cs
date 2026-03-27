@@ -30,7 +30,7 @@ public class Xu : KillableEntity
         }
     }
 
-    public override void DamageTakken(int health)
+    public override void DamageTaken(int health)
     {
         ChangeHealth(health);
     }
