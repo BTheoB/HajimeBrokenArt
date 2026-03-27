@@ -7,8 +7,8 @@ public class BasicEnemy : KillableEntity
     {
         maxHealth = basicEnemyData.maxHealth;
         currentHealth = basicEnemyData.maxHealth;
-        speed = basicEnemyData.speed;
         damage = basicEnemyData.damage;
+
     }
     public void HittedAnimation()
     {

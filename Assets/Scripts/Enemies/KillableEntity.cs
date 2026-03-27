@@ -1,5 +1,6 @@
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.AI;
 
 // Super classe d'une ennemie qui regroupe les fonctions de bases des ennemies
 public abstract class KillableEntity : MonoBehaviour
@@ -12,12 +13,12 @@ public abstract class KillableEntity : MonoBehaviour
     public GameObject CollectiblePrefab;
     public EnemyController enemyController;
 
-    public float speed;
     protected int damage;
     protected int maxHealth;
     protected int currentHealth;
     public bool isDead = false;
     protected bool freezed = false;
+    protected NavMeshAgent agent;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -26,6 +27,9 @@ public abstract class KillableEntity : MonoBehaviour
         animator = GetComponent<Animator>();
         rigidbody2d = GetComponent<Rigidbody2D>();
         PlayerRigidbody2d = GameObject.FindWithTag("Player").GetComponent<Rigidbody2D>();
+        agent = GetComponent<NavMeshAgent>();
+        agent.updateRotation = false;
+        agent.updateUpAxis = false;
         Initialize();
     }
 
@@ -42,6 +46,7 @@ public abstract class KillableEntity : MonoBehaviour
         if (!isDead && !freezed)
         {
             playerPosition = PlayerRigidbody2d.position;
+            agent.SetDestination(playerPosition);
         }
     }
     // Update is called at a fixed interval
@@ -55,18 +60,7 @@ public abstract class KillableEntity : MonoBehaviour
             Vector2 normalizedDirection = direction.normalized;
 
             animator.SetFloat("MoveX", normalizedDirection.x);
-            animator.SetFloat("MoveY", normalizedDirection.y);
-
-            Debug.Log(direction.magnitude);
-
-            // Calcule la direction de l'ennemie vers joueur
-            if (direction.magnitude > 1)
-            {
-               
-                Vector2 velocity = normalizedDirection * speed;
-                Vector2 newPosition = (Vector2)rigidbody2d.position + speed * Time.deltaTime * normalizedDirection;
-                rigidbody2d.MovePosition(newPosition);
-            }
+            animator.SetFloat("MoveY", normalizedDirection.y);            
         }
     }
 
