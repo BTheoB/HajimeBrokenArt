@@ -1,4 +1,4 @@
-# 🎮 [HajimeBrokenArt]
+# 🎮 HajimeBrokenArt
 
 > Jeu vidéo développé intégralement en solo avec **Unity / C#**, conçu comme un terrain d'entraînement pour la mise en pratique de **design patterns** de programmation dans un contexte de jeu vidéo réel.
 
