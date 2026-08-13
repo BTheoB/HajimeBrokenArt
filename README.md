@@ -27,11 +27,10 @@
 ---
 
 > 💡 La documentation complète du code ce trouve dans mon espace de travail Notion, j'ai développer les explications sur l’implémentation des paternes employés.
-> 
 ## 🕹️ Présentation
 
-**Exemple :**
-> Ce jeu est un roguelite / shoot'em up dans lequel le joueur doit survivre à des vagues différents monstres, le jouer accumule des points d'énergie qu'il pourra réutiliser pour améliorer ses armes et capacités. Le jeu propose une multitudes d'ennemies aux comportements variés, des armes aux effets diverses et des capacités déblocables aidant le joueur à survivre aux vagues de monstres de plus en plus complexe.
+
+Ce jeu est un roguelite / shoot'em up dans lequel le joueur doit survivre à des vagues différents monstres, le jouer accumule des points d'énergie qu'il pourra réutiliser pour améliorer ses armes et capacités. Le jeu propose une multitudes d'ennemies aux comportements variés, des armes aux effets diverses et des capacités déblocables aidant le joueur à survivre aux vagues de monstres de plus en plus complexe.
 
 ## 🎯 Objectif du projet
 
