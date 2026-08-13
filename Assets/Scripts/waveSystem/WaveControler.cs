@@ -63,7 +63,6 @@ public class WaveControler : MonoBehaviour
         int portal = Random.Range(0, 4);
         if (!portalSpawners[portal].IsActive()) return;
 
-
         KillableEntity enemySpwaned =  enemySpawner.SpawnEnemy(currentWave, portalSpawners[portal].transform.position, enemyController);
 
         enemyController.AddEnemy(enemySpwaned);

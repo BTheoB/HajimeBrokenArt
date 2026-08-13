@@ -1,61 +1,38 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UIElements;
 
 
 //Gère le game state
-public class GameControler : MonoBehaviour
+public class GameControler : PausableGame
 {
-    public bool isPaused;
     public WaveControler waveControler;
-    public PlayerController player;
-    public PauseMenuScript pauseMenu;
     public GameOverMenuScript gameOverMenu;
     public EnemyController enemyController;
 
-    private void Awake()
+    protected override void OnEnable()
     {
-        isPaused = false;
-    }
-
-    private void OnEnable()
-    {
-        pauseMenu.OnClickReprendre += ReprendreGame;
-        pauseMenu.OnClickQuitter += QuitterGame;
-
+        base.OnEnable();
         player.OnPlayerDied += GameOver;
 
         gameOverMenu.OnClickQuitter += QuitterGame;
         gameOverMenu.OnClickRejouer += RestartGame;
     }
 
-    private void OnDisable()
+    protected override void OnDisable()
     {
-        pauseMenu.OnClickReprendre -= ReprendreGame;
-        pauseMenu.OnClickQuitter -= QuitterGame;
-
+        base.OnDisable();
         player.OnPlayerDied -= GameOver;
 
         gameOverMenu.OnClickQuitter -= QuitterGame;
         gameOverMenu.OnClickRejouer -= RestartGame;
     }
 
-    void Update()
+    protected override void Update()
     {
-        HandlePauseInput();
+        base.Update();
         HandleLaunchWaveInput();
     }
 
-    private void HandlePauseInput()
-    {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            if (isPaused)
-                ReprendreGame();
-            else
-                PauseGame();
-        }
-    }
 
     private void HandleLaunchWaveInput()
     {
@@ -85,31 +62,6 @@ public class GameControler : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
-    public void PauseGame()
-    {
-        isPaused = true;
-        
-        pauseMenu.ShowWithAnim();
-
-        player.SetActivity(false);
-        Time.timeScale = 0;
-    }
-
-    public void ReprendreGame()
-    {
-        isPaused = false;
-
-        pauseMenu.HideWithAnim();
-
-        Time.timeScale = 1;
-        player.SetActivity(true);
-    }
-
-    public void QuitterGame()
-    {
-        Time.timeScale = 1;
-        SceneManager.LoadScene("Main Menu");
-    }
 }
 
 

@@ -109,6 +109,8 @@ public abstract class KillableEntity : MonoBehaviour
         SetHealth(currentHealth + health);
         if (currentHealth <= 0)
         {
+            agent.velocity = Vector3.zero;
+            agent.isStopped = true;
             isDead = true;
             animator.SetTrigger("Death");
         }
@@ -136,11 +138,14 @@ public abstract class KillableEntity : MonoBehaviour
     }
     public void Freeze()
     {
+        agent.isStopped = true;
+        agent.velocity = Vector3.zero;
         this.freezed = true;
     }
 
     public void UnFreeze()
     {
+        agent.isStopped = false;
         this.freezed = false;
     }
 }
