@@ -89,4 +89,4 @@ Pas encore installable.
 ## 📬 Contact
 
 **Théo Bastienne-Banco**
-[Portfolio](https://github.com/BTheoB) · [Email](tbastienne@gmail.com)
+[Portfolio](https://github.com/BTheoB) · [Email](mailto:tbastienne@gmail.com)
